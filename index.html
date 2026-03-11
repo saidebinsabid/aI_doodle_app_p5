@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doodle Recognition App</title>
+    <!-- Beautiful Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Our custom raw CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <header class="header">
+            <h1>AI Doodle Recognition 🎨</h1>
+            <p>Draw something and let AI predict what it is!</p>
+        </header>
+
+        <section class="controls-card">
+            <div class="input-group">
+                <label for="colorSelector">Stroke Color:</label>
+                <input type="color" id="colorSelector" value="#563d7c" title="Choose your color">
+            </div>
+
+            <div class="input-group">
+                <label for="strokeSelector">Stroke Size:</label>
+                <select id="strokeSelector" class="custom-select">
+                    <option selected>Choose...</option>
+                    <option value="1">1px</option>
+                    <option value="5">5px</option>
+                    <option value="10">10px</option>
+                    <option value="15">15px</option>
+                    <option value="20">20px</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-outline" onclick="clearCanvas()">Clear</button>
+                <button class="btn btn-primary" onclick="predictDoodle()">Predict</button>
+            </div>
+        </section>
+
+        <section class="prediction-card">
+            <h3 id="result">Prediction: ...</h3>
+        </section>
+
+        <!-- p5.js canvas will render inside this container -->
+        <div id="canvas-container" class="canvas-container"></div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
